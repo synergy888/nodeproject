@@ -1,0 +1,12 @@
+<testsuite name="Mocha Tests" tests="10" failures="0" errors="0" skipped="0" timestamp="Thu, 14 Apr 2016 09:41:31 GMT" time="0.053">
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return mongoHost value that matches transformProperty" time="0.001"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return mongoPort value that matches transformProperty" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return company_code value that matches transformProperty" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should match new/existing prompt text" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return y for a new customer" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return y for a new customer provided first chracter is y (e.g. yep)" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return y for a new customer provided first chracter is y (e.g. yes)" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return output_to_folder_only value that matches transformProperty" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return input_folder value that matches transformProperty" time="0"/>
+<testcase classname="jade-transform populateTransformObjects - New customer unit test" name="should return output_folder value that matches transformProperty" time="0"/>
+</testsuite>
