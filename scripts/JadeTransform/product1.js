@@ -44,7 +44,34 @@ module.exports = {
                         commerceversion = configMongo.commerceversion;
                     }
 
-                    var promptCommerceVersion = {
+                    configMongo.commerceversion = commerceversion;
+
+                    configMongo.Companies_products_commerce_settings_company_timeZone_value = "0600";
+                    configMongo.Companies_products_commerce_settings_company_timeZone_operator = "-";
+                    configMongo.Companies_products_commerce_settings_company_timeZone_hours = "06";
+                    configMongo.Companies_products_commerce_settings_company_timeZone_minutes = "00";
+
+                    configMongo.Companies_products_commerce_settings_company_timeZone_name = "US/Central";
+                    configMongo.Companies_products_commerce_settings_company_timeZone_defaultRegion = "USA";
+
+
+
+                    configMongo.Users_products_commerce_settings_timeZone_value = "";
+                    configMongo.Users_products_commerce_settings_timeZone_operator = "";
+                    configMongo.Users_products_commerce_settings_timeZone_hours = "";
+                    configMongo.Users_products_commerce_settings_timeZone_minutes = "";
+
+                    configMongo.Users_products_jobsite_settings_timeZone_value = "";
+                    configMongo.Users_products_jobsite_settings_timeZone_operator = "";
+                    configMongo.Users_products_jobsite_settings_timeZone_hours = "";
+                    configMongo.Users_products_jobsite_settings_timeZone_minutes = "";
+
+                    configMongo.Companies_products_commerce_settings_user_timeZone_value = "";
+                    configMongo.Companies_products_commerce_settings_user_timeZone_operator = "";
+                    configMongo.Companies_products_commerce_settings_user_timeZone_hours = "";
+                    configMongo.Companies_products_commerce_settings_user_timeZone_minutes = "";
+
+                    /*var promptCommerceVersion = {
                         properties: {
                             commerceversion: {
                                 message: 'Is this for MobileCommerce 1.2 or MobileCommerce 1.3?',
@@ -52,17 +79,17 @@ module.exports = {
                                 required: false
                             }
                         }
-                    };
+                    };*/
 
-                    prompt.get(promptCommerceVersion, function (err, result) {
-                        if (err) {
+                    //prompt.get(promptCommerceVersion, function (err, result) {
+                        /*if (err) {
                             util.handleError(err);
                         }
                         console.log('commerce version: ' + result.commerceversion);
                         configMongo.commerceversion = result.commerceversion;
+                        */
 
-
-                        if (result.commerceversion === '1.3'){
+                        /*if (result.commerceversion === '1.3'){
                             configMongo.commerceversion = result.commerceversion;
 
                             configMongo.Companies_products_commerce_settings_company_timeZone_value = "0600";
@@ -104,7 +131,7 @@ module.exports = {
                             configMongo.Users_products_commerce_settings_timeZone_operator = "-";
                             configMongo.Users_products_commerce_settings_timeZone_hours = "05";
                             configMongo.Users_products_commerce_settings_timeZone_minutes = "00";
-                        }
+                        }*/
 
 
 
@@ -228,7 +255,7 @@ module.exports = {
                                             configMongo.Companies_products_commerce_settings_dataEndPoints_SocketEndPoint_Port = result.end_point_port;
                                             console.log('End point port : ' + configMongo.end_point_port);
 
-                                            if (configMongo.commerceversion === '1.2') {
+                                            /*if (configMongo.commerceversion === '1.2') {
                                                 var adv_order_req = process.env.ADV_ORDER_REQ;
                                                 if (adv_order_req === undefined) {
                                                     adv_order_req = configMongo.adv_order_req;
@@ -309,7 +336,7 @@ module.exports = {
                                                     console.log('Advance order request : ' + configMongo.adv_order_req);
                                                 });
 
-                                            }
+                                            }*/
 
                                             var reorder_request_mail = process.env.REORDER_REQUEST_MAIL;
                                             if (reorder_request_mail === undefined) {
@@ -393,7 +420,7 @@ module.exports = {
                                 });
                             });
                         });
-                    });
+                    //});
             }
             else {
                 configMongo.product1_install = 'n';
@@ -461,8 +488,34 @@ module.exports = {
                                                             commerceversion = configMongo.commerceversion;
                                                         }
 
+                                                        configMongo.commerceversion = commerceversion;
 
-                                                        var promptCommerceVersion = {
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_value = "0600";
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_operator = "-";
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_hours = "06";
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_minutes = "00";
+
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_name = "US/Central";
+                                                        configMongo.Companies_products_commerce_settings_company_timeZone_defaultRegion = "USA";
+
+
+
+                                                        configMongo.Users_products_commerce_settings_timeZone_value = "";
+                                                        configMongo.Users_products_commerce_settings_timeZone_operator = "";
+                                                        configMongo.Users_products_commerce_settings_timeZone_hours = "";
+                                                        configMongo.Users_products_commerce_settings_timeZone_minutes = "";
+
+                                                        configMongo.Users_products_jobsite_settings_timeZone_value = "";
+                                                        configMongo.Users_products_jobsite_settings_timeZone_operator = "";
+                                                        configMongo.Users_products_jobsite_settings_timeZone_hours = "";
+                                                        configMongo.Users_products_jobsite_settings_timeZone_minutes = "";
+
+                                                        configMongo.Companies_products_commerce_settings_user_timeZone_value = "";
+                                                        configMongo.Companies_products_commerce_settings_user_timeZone_operator = "";
+                                                        configMongo.Companies_products_commerce_settings_user_timeZone_hours = "";
+                                                        configMongo.Companies_products_commerce_settings_user_timeZone_minutes = "";
+
+                                                        /*var promptCommerceVersion = {
                                                             properties: {
                                                                 commerceversion: {
                                                                     message: 'Is this for MobileCommerce 1.2 or MobileCommerce 1.3?',
@@ -470,9 +523,9 @@ module.exports = {
                                                                     required: false
                                                                 }
                                                             }
-                                                        };
+                                                        };*/
 
-                                                        prompt.get(promptCommerceVersion, function (err, result) {
+                                                        /*prompt.get(promptCommerceVersion, function (err, result) {
                                                             if (err) {
                                                                 util.handleError(err);
                                                             }
@@ -522,12 +575,13 @@ module.exports = {
                                                                 configMongo.Users_products_commerce_settings_timeZone_hours = "05";
                                                                 configMongo.Users_products_commerce_settings_timeZone_minutes = "00";
                                                             }
+                                                            */
 
-                                                            if (configMongo.commerceversion === '1.2') {
+                                                            /*if (configMongo.commerceversion === '1.2') {
                                                                 data.edx_gateway_ip = results[0].products[0].settings.edxGatewayConfig.ServerAddress;
                                                                 data.edx_gateway_port = results[0].products[0].settings.edxGatewayConfig.Port;
                                                                 data.adv_order_req = results[0].products[0].settings.company.advancedOrderRequest;
-                                                            }
+                                                            }*/
 
                                                             var promptSystemType = {
                                                                 properties : {
@@ -682,7 +736,7 @@ module.exports = {
                                                                                             configMongo.adv_order_req = 'y';
                                                                                             configMongo.Companies_products_commerce_settings_company_advancedOrderRequest = true;
 
-                                                                                            if (configMongo.commerceversion === '1.2') {
+                                                                                            /*if (configMongo.commerceversion === '1.2') {
                                                                                                 var edx_gateway_ip = process.env.EDX_GATEWAY_IP;
                                                                                                 if (edx_gateway_ip === undefined) {
                                                                                                     edx_gateway_ip = data.edx_gateway_ip;
@@ -729,7 +783,7 @@ module.exports = {
                                                                                                         configMongo.Companies_products_commerce_settings_edxGatewayConfig_Port = result.edx_gateway_port;
                                                                                                     });
                                                                                                 });
-                                                                                            }
+                                                                                            }*/
                                                                                         }
                                                                                     });
                                                                                 }
@@ -817,7 +871,7 @@ module.exports = {
                                                                     });
                                                                 });
                                                             });
-                                                        });
+                                                       // });
                                                     }
                                                 });
                                             }

@@ -1,8 +1,8 @@
 [
   {
     "code": "newco",
-    "environment" : "alpha",
-    "description": "dddaddd-saddad",
+    "environment" : "production",
+    "description": "this is mid night 12",
     "status" : "y",
     "settings" : {
       "communications" : {
@@ -13,13 +13,13 @@
           }
         }
       },
-      "cloudStore" : "n"
+      "cloudStore" : "y"
     },
     "products": [
       {
         "code": "MobileEcommerce",
         "settings": {
-          "environment" : "alpha",
+          "environment" : "production",
           "documentsConfig": {
             "providerAddress" : "http://localhost",
             "documentsUseChecksum" : "false",
@@ -128,7 +128,63 @@
           },
           "company": {
             "timeZone": {
-              "value": "-0600",
+              "value": "0600",
+              "operator": "-",
+              "hours": "06",
+              "minutes": "00"
+            },
+            "supportEmail" : ""
+          },
+          "templates" : [
+            {
+              "type" : "concrete",
+              "name" : "TicketJade-Concrete",
+              "body" : "|testbcs2 attached concrete ticket",
+              "subject" : "|{{ soldToCustomer.code }} - {{ soldToCustomer.name }} - {{ ticketNumber }}",
+              "fileName" : "{{ soldToCustomer.code }}_{{ project.code }}_{{ ticketNumber }}",
+              "formatter" : "jade"
+            },
+            {
+              "type" : "aggregate",
+              "name" : "TicketJade-Aggregate",
+              "body" : "|testbcs2 attached aggregate ticket",
+              "subject" : "|{{ soldToCustomer.code }} - {{ soldToCustomer.name }} - {{ ticketNumber }}",
+              "fileName" : "{{ location.plantCode }}_{{ company.code }}_{{ soldToCustomer.code }}_{{ ticketNumber }}",
+              "formatter" : "jade"
+            }
+          ]
+        }
+      },
+      {
+        "code": "MobileticketBulk",
+        "settings": {
+          "savePdf" : "false",
+          "systemType" : {
+            "hauler" : "false",
+            "ticket" : {
+              "concrete" : "false",
+              "aggregate" : "false"
+            }
+          },
+          "dataEndPoints": {
+            "MobileBulkTicketService" : {
+              "EndPointAddress" : "http://localhost",
+              "Port" : "35245",
+              "Type" : "REST",
+              "SubType" : "Client",
+              "context" : "both"
+            },
+            "EDXTicketService" : {
+              "EndPointAddress" : "http://localhost",
+              "Port" : "35245",
+              "Type" : "REST",
+              "SubType" : "Client",
+              "context" : "none"
+            }
+          },
+          "company": {
+            "timeZone": {
+              "value": "0600",
               "operator": "-",
               "hours": "06",
               "minutes": "00"
@@ -201,7 +257,7 @@
           },
           "company": {
             "timeZone": {
-              "value": "-0600",
+              "value": "0600",
               "operator": "-",
               "hours": "06",
               "minutes": "00",
@@ -212,7 +268,7 @@
           "user": {
             "customer": {
               "code": "newco",
-              "name": "dddaddd-saddad"
+              "name": ""
             },
             "timeZone" : {
               "value" : "",

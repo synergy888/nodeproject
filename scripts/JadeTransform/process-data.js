@@ -1,4 +1,3 @@
-
 var prompt = require('prompt');
 var configMongo = require('./config-mongo.js');
 var util = require('./util/utils');var transform = require('./util/mongo-transform.js');

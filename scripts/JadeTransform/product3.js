@@ -1,3 +1,4 @@
+
 var prompt = require('prompt');
 var configMongo = require('./config-mongo.js');
 var util = require('./util/utils');
@@ -28,6 +29,11 @@ module.exports = {
             }
 
             if (result.product3_installation.toLowerCase() === 'y') {
+                configMongo.product3_install = 'y';
+                result.product3_installation = configMongo.product3_installation;
+                configMongo.productDefinitions_bulkticket_code = result.product3_installation;
+                configMongo.Users_products_bulkticket_code = result.product3_installation;
+                configMongo.Companies_products_bulkticket_code = result.product3_installation;
 
                 console.log('product installing: ' + configMongo.product3_installation);
 

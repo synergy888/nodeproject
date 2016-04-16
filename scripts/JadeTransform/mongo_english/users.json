@@ -61,6 +61,16 @@
                 }
             },
             {
+                "code": "~Users_products_bulkticket_code~",
+                "roles": "~Users_products_bulkticket_roles~",
+                "settings" : {
+                    "permissions":{
+                        "isAdmin" : "~Users_products_bulkticket_settings_permissions_isAdmin~",
+                        "legalAdmin": "~Users_products_bulkticket_settings_permissions_legalAdmin~"
+                    }
+                }
+            },
+            {
                 "code": "~Users_products_jobsite_code~",
                 "roles": [
                     "~Users_products_jobsite_roles~",

@@ -158,15 +158,15 @@ module.exports = {
                                         util.handleError(err);
                                     }
 
-                                    console.log('Environment : ' + result.env);
                                     if (result.env.substring(0, 1) === 'y') {
                                         configMongo.Companies_products_commerce_settings_env = configMongo.Companies_products_commerce_settings_env;
                                     }
                                     else {
                                         configMongo.Companies_products_commerce_settings_env = configMongo.Companies_products_commerce_settings_env_prod;
                                     }
+                                    console.log('Environment : ' + configMongo.Companies_products_commerce_settings_env);
 
-                                    var promptStyling = {
+                                    /*var promptStyling = {
                                         properties: {
                                             include_styling :{
                                                 message : 'Do you want to include style settings?',
@@ -174,14 +174,14 @@ module.exports = {
                                                 required : true
                                             }
                                         }
-                                    }
+                                    }*/
 
-                                    prompt.get(promptStyling, function (err, result) {
+                                    /*prompt.get(promptStyling, function (err, result) {
                                         if (err) {
                                             util.handleError(err);
-                                        }
+                                        }*/
 
-                                        if (result.include_styling.substring(0, 1) === 'y') {
+                                        /*if (result.include_styling.substring(0, 1) === 'y') {
                                             var Companies_customBranding_font = process.env.Companies_customBranding_font;
                                             if (Companies_customBranding_font === undefined) {
                                                 Companies_customBranding_font = configMongo.Companies_customBranding_font;
@@ -386,10 +386,10 @@ module.exports = {
                                                     //});
                                                 });
                                             });
-                                        }
-                                        else {
+                                        }*/
+                                        //else {
                                             cb();
-                                        }
+                                        //}
                                     });
                                 });
                             });
@@ -397,7 +397,7 @@ module.exports = {
                         });
                     });
                 });
-            });
+            //});
     },
 
     getNonProductInfoFromDb : function(cb) {
@@ -625,7 +625,7 @@ module.exports = {
                                                             configMongo.Companies_products_commerce_settings_env = configMongo.Companies_products_commerce_settings_env_prod;
                                                         }
 
-                                                        var promptStyling = {
+                                                        /*var promptStyling = {
                                                             properties: {
                                                                 include_styling :{
                                                                     message : 'Do you want to include style settings?',
@@ -633,14 +633,14 @@ module.exports = {
                                                                     required : true
                                                                 }
                                                             }
-                                                        }
+                                                        }*/
 
-                                                        prompt.get(promptStyling, function (err, result) {
+                                                        /*prompt.get(promptStyling, function (err, result) {
                                                             if (err) {
                                                                 util.handleError(err);
-                                                            }
+                                                            }*/
 
-                                                            if (result.include_styling.substring(0, 1) === 'y') {
+                                                            /*if (result.include_styling.substring(0, 1) === 'y') {
                                                                 var Companies_customBranding_font = process.env.Companies_customBranding_font;
                                                                 if (Companies_customBranding_font === undefined) {
                                                                     Companies_customBranding_font = data.company_primary_brand_font;
@@ -841,17 +841,17 @@ module.exports = {
                                                                         //});
                                                                     });
                                                                 });
-                                                            }
-                                                            else {
+                                                            }*/
+                                                            //else {
                                                                 cb();
-                                                            }
+                                                            //}
                                                         });
                                                     });
                                                 });
                                             });
                                         });
                                     });
-                                });
+                                //});
 
                             }
                         });
@@ -859,7 +859,33 @@ module.exports = {
                 });
             }
             else {
-                cb();
+                    var url = 'mongodb://' + configMongo.mongoHost + ':' + configMongo.mongoPort + '/'+ configMongo.company_code;
+
+                    MongoClient.connect(url, function(err, db) {
+                                        if (err) {
+                                            util.handleError(err);
+                                        }
+                                        else {
+                                            var collection = db.collection('company');
+                                            collection.find({}).toArray( function (err, result) {
+                                                if (err) {
+                                                    util.handleError(err);
+                                                }
+                                                else {
+                                                    configMongo.Companies_code = result[0].code;
+                                                    configMongo.Companies_products_commerce_settings_env = result[0].environment; 
+                                                    configMongo.Companies_description = result[0].description;
+                                                    configMongo.Companies_status = result[0].status;
+                                                    configMongo.Companies_settings_communications_email_from_name = result[0].settings.communications.email.from.name;
+                                                    configMongo.Companies_settings_communications_email_from_value = result[0].settings.communications.email.from.value;
+                                                    configMongo.Companies_settings_cloudStore = result[0].settings.cloudStore;
+
+                                                    db.close();
+                                                }
+                                            });
+                                        }
+                                    });
+                    cb();
             }
         });
     }

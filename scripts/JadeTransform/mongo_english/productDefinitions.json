@@ -33,6 +33,23 @@
 		"settings": {
         }
 	},
+	{
+		"code": "~productDefinitions_bulkticket_code~",
+	    "name": "~productDefinitions_bulkticket_name~",
+	    "description": "~productDefinitions_bulkticket_description~",
+	    "roles": [
+	    	"~productDefinitions_bulkticket_roles~",
+			"~productDefinitions_bulkticket_roles2~",
+			"~productDefinitions_bulkticket_roles3~"
+	    ],
+        "platforms": {
+            "desktop": "~productDefinitions_bulkticket_platforms_desktop~",
+            "mobile": "~productDefinitions_bulkticket_platforms_mobile~",
+            "tablet": "~productDefinitions_bulkticket_platforms_tablet~"
+        },
+		"settings": {
+        }
+	},
     {
         "code": "~productDefinitions_jobsite_code~",
         "name": "~productDefinitions_jobsite_name~",

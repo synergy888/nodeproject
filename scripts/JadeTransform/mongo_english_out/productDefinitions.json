@@ -33,6 +33,23 @@
 		"settings": {
         }
 	},
+	{
+		"code": "MobileticketBulk",
+	    "name": "MobileticketBulk",
+	    "description": "MobileticketBulk",
+	    "roles": [
+	    	"globaladmin",
+			"appadmin",
+			"appuser"
+	    ],
+        "platforms": {
+            "desktop": "desktop",
+            "mobile": "desktop",
+            "tablet": "desktop"
+        },
+		"settings": {
+        }
+	},
     {
         "code": "jobsite",
         "name": "MOBILEjobsite",

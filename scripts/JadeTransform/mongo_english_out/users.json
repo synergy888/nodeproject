@@ -1,7 +1,7 @@
 [
 	{
         "userName": "newcoadmin",
-        "hash" : "ZRGNM87VRjLRRi3V/uKlyGYu0Afqzppt6G6YKPkY7Mv5DC8Hd0+47PKuooZ6Znyx55ftJLgPhcVFgCVQIu4c/2+qtfxFizZCBSmxqIFsyYBALiDLj5qruHUwcb9boKouZYVyHNTME+w0jjzwluGPM7dD/jGXQHz5BPAnquNc3os=",
+        "hash" : "nbdCaEI4P++LDw6pcnpQnAMoxurw8wxadWZiv8+/iGa0KGSCKcs0iZotgRyhyWF4U2SupChvIjmEtuDjBnEwkWCMGKuv0bDY/SCcz0mjmu/sqFebPS8sYJWTvsSynKoWFPlA1qAGKmXUtw+8gox1sDf/LOW8eGlpG0H+fP2CQsA=",
         "firstName": "",
         "lastName": "",
         "email": "",
@@ -25,7 +25,7 @@
                     "sms": "",
                     "customer": {
                         "code": "newco",
-                        "name": "dddaddd-saddad"
+                        "name": ""
                     },
                     "sales": [""],
                     "timeZone" : {
@@ -61,6 +61,16 @@
                 }
             },
             {
+                "code": "MobileticketBulk",
+                "roles": "appadmin",
+                "settings" : {
+                    "permissions":{
+                        "isAdmin" : "true",
+                        "legalAdmin": "true"
+                    }
+                }
+            },
+            {
                 "code": "jobsite",
                 "roles": [
                     "appadmin",
@@ -71,7 +81,7 @@
                     "sms": "",
                     "customer": {
                         "code": "newco",
-                        "name": "dddaddd-saddad"
+                        "name": ""
                     },
                     "sales": [""],
                     "timeZone" : {

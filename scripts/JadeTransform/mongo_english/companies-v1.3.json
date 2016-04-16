@@ -156,6 +156,62 @@
         }
       },
       {
+        "code": "~Companies_products_bulkticket_code~",
+        "settings": {
+          "savePdf" : "~Companies_products_bulkticket_settings_savePdf~",
+          "systemType" : {
+            "hauler" : "~Companies_products_bulkticket_settings_systemType_hauler~",
+            "ticket" : {
+              "concrete" : "~Companies_products_bulkticket_settings_systemType_ticket_concrete~",
+              "aggregate" : "~Companies_products_bulkticket_settings_systemType_ticket_aggregate~"
+            }
+          },
+          "dataEndPoints": {
+            "MobileBulkTicketService" : {
+              "EndPointAddress" : "~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_EndPointAddress~",
+              "Port" : "~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Port~",
+              "Type" : "~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Type~",
+              "SubType" : "~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_SubType~",
+              "context" : "~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_context~"
+            },
+            "EDXTicketService" : {
+              "EndPointAddress" : "~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_EndPointAddress~",
+              "Port" : "~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Port~",
+              "Type" : "~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Type~",
+              "SubType" : "~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_SubType~",
+              "context" : "~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_context~"
+            }
+          },
+          "company": {
+            "timeZone": {
+              "value": "~Companies_products_bulkticket_settings_company_timeZone_value~",
+              "operator": "~Companies_products_bulkticket_settings_company_timeZone_operator~",
+              "hours": "~Companies_products_bulkticket_settings_company_timeZone_hours~",
+              "minutes": "~Companies_products_bulkticket_settings_company_timeZone_minutes~"
+            },
+            "supportEmail" : "~Companies_products_bulkticket_settings_company_supportEmail~"
+          },
+          "templates" : [
+            {
+              "type" : "~Companies_products_bulkticket_settings_templates_type~",
+              "name" : "~Companies_products_bulkticket_settings_templates_name~",
+              "body" : "~Companies_products_bulkticket_settings_templates_body~",
+              "subject" : "~Companies_products_bulkticket_settings_templates_subject~",
+              "fileName" : "~Companies_products_bulkticket_settings_templates_fileName~",
+              "formatter" : "~Companies_products_bulkticket_settings_templates_formatter~"
+            },
+            {
+              "type" : "~Companies_products_bulkticket_settings_templates_type2~",
+              "name" : "~Companies_products_bulkticket_settings_templates_name2~",
+              "body" : "~Companies_products_bulkticket_settings_templates_body2~",
+              "subject" : "~Companies_products_bulkticket_settings_templates_subject2~",
+              "fileName" : "~Companies_products_bulkticket_settings_templates_fileName2~",
+              "formatter" : "~Companies_products_bulkticket_settings_templates_formatter2~"
+            }
+          ]
+        }
+      },
+      {
         "code": "~Companies_products_jobsite_code~",
         "settings": {
           "systemType": "~Companies_products_jobsite_settings_systemType~",

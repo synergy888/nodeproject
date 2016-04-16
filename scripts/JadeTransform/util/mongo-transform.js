@@ -21,7 +21,7 @@ var mongo_transform = {
             var fs = require('fs')
             var data = fs.readFileSync(sourceFile).toString();
 
-            if (sourceFile.indexOf('companies.json') > -1) {
+            /*if (sourceFile.indexOf('companies.json') > -1) {
                 data = data.replace(/~Companies_code~/g, transformMongoProperties.companyObj.code);
                 data = data.replace(/~Companies_description~/g, transformMongoProperties.companyObj.description);
                 data = data.replace(/~Companies_status~/g, transformMongoProperties.companyObj.status);
@@ -185,8 +185,8 @@ var mongo_transform = {
                 data = data.replace(/~Companies_products_supply_settings_dataEndPoints_SocketEndPoint_SubType~/g, transformMongoProperties.companyObj.products_supply_settings_dataEndPoints_SocketEndPoint_SubType);
                 data = data.replace(/~Companies_products_evoadmin_code~/g, transformMongoProperties.companyObj.products_evoadmin_code);
                 data = data.replace(/"~Companies_products_evoadmin_settings~"/g, transformMongoProperties.companyObj.products_evoadmin_settings);
-            }
-            else if (sourceFile.indexOf('companies-v1.3.json') > -1) {
+            }*/
+            if (sourceFile.indexOf('companies-v1.3.json') > -1) {
                 data = data.replace(/~Companies_code~/g, transformMongoProperties.companyObj.code);
                 data = data.replace(/~Companies_description~/g, transformMongoProperties.companyObj.description);
                 data = data.replace(/~Companies_status~/g, transformMongoProperties.companyObj.status);
@@ -289,6 +289,43 @@ var mongo_transform = {
                 data = data.replace(/~Companies_products_ticket_settings_templates_subject2~/g, transformMongoProperties.companyObj.products_ticket_settings_templates_subject2);
                 data = data.replace(/~Companies_products_ticket_settings_templates_fileName2~/g, transformMongoProperties.companyObj.products_ticket_settings_templates_fileName2);
                 data = data.replace(/~Companies_products_ticket_settings_templates_formatter2~/g, transformMongoProperties.companyObj.products_ticket_settings_templates_formatter2);
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                data = data.replace(/~Companies_products_bulkticket_code~/g, transformMongoProperties.companyObj.products_bulkticket_code);
+                data = data.replace(/~Companies_products_bulkticket_settings_savePdf~/g, transformMongoProperties.companyObj.products_bulkticket_settings_savePdf);
+                data = data.replace(/~Companies_products_bulkticket_settings_systemType_hauler~/g, transformMongoProperties.companyObj.products_bulkticket_settings_systemType_hauler);
+                data = data.replace(/~Companies_products_bulkticket_settings_systemType_ticket_concrete~/g, transformMongoProperties.companyObj.products_bulkticket_settings_systemType_bulkticket_concrete);
+                data = data.replace(/~Companies_products_bulkticket_settings_systemType_ticket_aggregate~/g, transformMongoProperties.companyObj.products_bulkticket_settings_systemType_bulkticket_aggregate);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_EndPointAddress~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_MobileTicketService_EndPointAddress);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Port~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_MobileTicketService_Port);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Type~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_MobileTicketService_Type);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_SubType~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_MobileTicketService_SubType);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_context~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_MobileTicketService_context);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_EndPointAddress~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_EDXTicketService_EndPointAddress);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Port~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_EDXTicketService_Port);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Type~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_EDXTicketService_Type);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_SubType~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_EDXTicketService_SubType);
+                data = data.replace(/~Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_context~/g, transformMongoProperties.companyObj.products_bulkticket_settings_dataEndPoints_EDXTicketService_context);
+
+                data = data.replace(/~Companies_products_bulkticket_settings_company_timeZone_value~/g, transformMongoProperties.companyObj.products_bulkticket_settings_company_timeZone_value);
+                data = data.replace(/~Companies_products_bulkticket_settings_company_timeZone_operator~/g, transformMongoProperties.companyObj.products_bulkticket_settings_company_timeZone_operator);
+                data = data.replace(/~Companies_products_bulkticket_settings_company_timeZone_hours~/g, transformMongoProperties.companyObj.products_bulkticket_settings_company_timeZone_hours);
+                data = data.replace(/~Companies_products_bulkticket_settings_company_timeZone_minutes~/g, transformMongoProperties.companyObj.products_bulkticket_settings_company_timeZone_minutes);
+
+                data = data.replace(/~Companies_products_bulkticket_settings_company_supportEmail~/g, transformMongoProperties.companyObj.products_bulkticket_settings_company_supportEmail);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_type~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_type);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_name~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_name);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_body~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_body);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_subject~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_subject);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_fileName~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_fileName);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_formatter~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_formatter);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_type2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_type2);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_name2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_name2);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_body2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_body2);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_subject2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_subject2);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_fileName2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_fileName2);
+                data = data.replace(/~Companies_products_bulkticket_settings_templates_formatter2~/g, transformMongoProperties.companyObj.products_bulkticket_settings_templates_formatter2);
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 data = data.replace(/~Companies_products_jobsite_code~/g, transformMongoProperties.companyObj.products_jobsite_code);
                 data = data.replace(/~Companies_products_jobsite_settings_systemType~/g, transformMongoProperties.companyObj.products_jobsite_settings_systemType);
@@ -412,6 +449,16 @@ var mongo_transform = {
                 data = data.replace(/~productDefinitions_ticket_platforms_desktop~/g, transformMongoProperties.productDefinitionObj.ticket_platforms_desktop);
                 data = data.replace(/~productDefinitions_ticket_platforms_mobile~/g, transformMongoProperties.productDefinitionObj.ticket_platforms_mobile);
                 data = data.replace(/~productDefinitions_ticket_platforms_tablet~/g, transformMongoProperties.productDefinitionObj.ticket_platforms_tablet);
+
+                data = data.replace(/~productDefinitions_bulkticket_code~/g, transformMongoProperties.productDefinitionObj.bulkticket_code);
+                data = data.replace(/~productDefinitions_bulkticket_name~/g, transformMongoProperties.productDefinitionObj.bulkticket_name);
+                data = data.replace(/~productDefinitions_bulkticket_description~/g, transformMongoProperties.productDefinitionObj.bulkticket_description);
+                data = data.replace(/~productDefinitions_bulkticket_roles~/g, transformMongoProperties.productDefinitionObj.bulkticket_roles);
+                data = data.replace(/~productDefinitions_bulkticket_roles2~/g, transformMongoProperties.productDefinitionObj.bulkticket_roles2);
+                data = data.replace(/~productDefinitions_bulkticket_roles3~/g, transformMongoProperties.productDefinitionObj.bulkticket_roles3);
+                data = data.replace(/~productDefinitions_bulkticket_platforms_desktop~/g, transformMongoProperties.productDefinitionObj.bulkticket_platforms_desktop);
+                data = data.replace(/~productDefinitions_bulkticket_platforms_mobile~/g, transformMongoProperties.productDefinitionObj.bulkticket_platforms_mobile);
+                data = data.replace(/~productDefinitions_bulkticket_platforms_tablet~/g, transformMongoProperties.productDefinitionObj.bulkticket_platforms_tablet);
 
                 data = data.replace(/~productDefinitions_jobsite_code~/g, transformMongoProperties.productDefinitionObj.jobsite_code);
                 data = data.replace(/~productDefinitions_jobsite_name~/g, transformMongoProperties.productDefinitionObj.jobsite_name);
@@ -598,6 +645,11 @@ var mongo_transform = {
                 data = data.replace(/~Users_products_ticket_settings_permissions_isAdmin~/g, transformMongoProperties.userObj.products_ticket_settings_permissions_isAdmin);
                 data = data.replace(/~Users_products_ticket_settings_permissions_legalAdmin~/g, transformMongoProperties.userObj.products_ticket_settings_permissions_legalAdmin);
 
+                data = data.replace(/~Users_products_bulkticket_code~/g, transformMongoProperties.userObj.products_bulkticket_code);
+                data = data.replace(/~Users_products_bulkticket_roles~/g, transformMongoProperties.userObj.products_bulkticket_roles);
+                data = data.replace(/~Users_products_bulkticket_settings_permissions_isAdmin~/g, transformMongoProperties.userObj.products_bulkticket_settings_permissions_isAdmin);
+                data = data.replace(/~Users_products_bulkticket_settings_permissions_legalAdmin~/g, transformMongoProperties.userObj.products_bulkticket_settings_permissions_legalAdmin);
+
                 data = data.replace(/~Users_products_jobsite_code~/g, transformMongoProperties.userObj.products_jobsite_code);
                 data = data.replace(/~Users_products_jobsite_roles~/g, transformMongoProperties.userObj.products_jobsite_roles);
                 data = data.replace(/~Users_products_jobsite_roles2~/g, transformMongoProperties.userObj.products_jobsite_roles2);
@@ -627,7 +679,6 @@ var mongo_transform = {
                 data = data.replace(/~Users_products_evoadmin_roles~/g, transformMongoProperties.userObj.products_evoadmin_roles);
             }
 
-//    console.log(data);
             this.isDirectory = true;
             try
             {
@@ -795,6 +846,39 @@ var mongo_transform = {
             company.products_ticket_settings_templates_fileName2 = config.Companies_products_ticket_settings_templates_fileName2;
             company.products_ticket_settings_templates_formatter2 = config.Companies_products_ticket_settings_templates_formatter2;
 
+            company.products_bulkticket_code = config.Companies_products_bulkticket_code;
+            company.products_bulkticket_settings_savePdf = config.Companies_products_bulkticket_settings_savePdf;
+            company.products_bulkticket_settings_systemType_hauler = config.Companies_products_bulkticket_settings_systemType_hauler;
+            company.products_bulkticket_settings_systemType_bulkticket_concrete = config.Companies_products_bulkticket_settings_systemType_bulkticket_concrete;
+            company.products_bulkticket_settings_systemType_bulkticket_aggregate = config.Companies_products_bulkticket_settings_systemType_bulkticket_aggregate;
+            company.products_bulkticket_settings_dataEndPoints_MobileTicketService_EndPointAddress = config.Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_EndPointAddress;
+            company.products_bulkticket_settings_dataEndPoints_MobileTicketService_Port = config.Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Port;
+            company.products_bulkticket_settings_dataEndPoints_MobileTicketService_Type = config.Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_Type;
+            company.products_bulkticket_settings_dataEndPoints_MobileTicketService_SubType = config.Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_SubType;
+            company.products_bulkticket_settings_dataEndPoints_MobileTicketService_context = config.Companies_products_bulkticket_settings_dataEndPoints_MobileTicketService_context;
+            company.products_bulkticket_settings_dataEndPoints_EDXTicketService_EndPointAddress = config.Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_EndPointAddress;
+            company.products_bulkticket_settings_dataEndPoints_EDXTicketService_Port = config.Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Port;
+            company.products_bulkticket_settings_dataEndPoints_EDXTicketService_Type = config.Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_Type;
+            company.products_bulkticket_settings_dataEndPoints_EDXTicketService_SubType = config.Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_SubType;
+            company.products_bulkticket_settings_dataEndPoints_EDXTicketService_context = config.Companies_products_bulkticket_settings_dataEndPoints_EDXTicketService_context;
+            company.products_bulkticket_settings_company_timeZone_value =config.Companies_products_bulkticket_settings_company_timeZone_value;
+            company.products_bulkticket_settings_company_timeZone_operator = config.Companies_products_bulkticket_settings_company_timeZone_operator;
+            company.products_bulkticket_settings_company_timeZone_hours = config.Companies_products_bulkticket_settings_company_timeZone_hours;
+            company.products_bulkticket_settings_company_timeZone_minutes = config.Companies_products_bulkticket_settings_company_timeZone_minutes;
+            company.products_bulkticket_settings_company_supportEmail = config.Companies_products_bulkticket_settings_company_supportEmail;
+            company.products_bulkticket_settings_templates_type = config.Companies_products_bulkticket_settings_templates_type;
+            company.products_bulkticket_settings_templates_name = config.Companies_products_bulkticket_settings_templates_name;
+            company.products_bulkticket_settings_templates_body = config.Companies_products_bulkticket_settings_templates_body;
+            company.products_bulkticket_settings_templates_subject = config.Companies_products_bulkticket_settings_templates_subject;
+            company.products_bulkticket_settings_templates_fileName = config.Companies_products_bulkticket_settings_templates_fileName;
+            company.products_bulkticket_settings_templates_formatter = config.Companies_products_bulkticket_settings_templates_formatter;
+            company.products_bulkticket_settings_templates_type2 = config.Companies_products_bulkticket_settings_templates_type2;
+            company.products_bulkticket_settings_templates_name2 = config.Companies_products_bulkticket_settings_templates_name2;
+            company.products_bulkticket_settings_templates_body2 = config.Companies_products_bulkticket_settings_templates_body2;
+            company.products_bulkticket_settings_templates_subject2 = config.Companies_products_bulkticket_settings_templates_subject2;
+            company.products_bulkticket_settings_templates_fileName2 = config.Companies_products_bulkticket_settings_templates_fileName2;
+            company.products_bulkticket_settings_templates_formatter2 = config.Companies_products_bulkticket_settings_templates_formatter2;
+
             company.products_jobsite_code = config.Companies_products_jobsite_code;
             company.products_jobsite_settings_systemType = config.Companies_products_jobsite_settings_systemType;
             company.products_jobsite_settings_documentsConfig = config.Companies_products_jobsite_settings_documentsConfig;
@@ -920,6 +1004,17 @@ var mongo_transform = {
             productDefinition.ticket_platforms_mobile = config.productDefinitions_ticket_platforms_mobile;
             productDefinition.ticket_platforms_tablet = config.productDefinitions_ticket_platforms_tablet;
             productDefinition.ticket_settings = config.productDefinitions_ticket_settings;
+
+            productDefinition.bulkticket_code = config.productDefinitions_bulkticket_code;
+            productDefinition.bulkticket_name = config.productDefinitions_bulkticket_name;
+            productDefinition.bulkticket_description = config.productDefinitions_bulkticket_description;
+            productDefinition.bulkticket_roles = config.productDefinitions_bulkticket_roles;
+            productDefinition.bulkticket_roles2 = config.productDefinitions_bulkticket_roles2;
+            productDefinition.bulkticket_roles3 = config.productDefinitions_bulkticket_roles3;
+            productDefinition.bulkticket_platforms_desktop = config.productDefinitions_bulkticket_platforms_desktop;
+            productDefinition.bulkticket_platforms_mobile = config.productDefinitions_bulkticket_platforms_mobile;
+            productDefinition.bulkticket_platforms_tablet = config.productDefinitions_bulkticket_platforms_tablet;
+            productDefinition.bulkticket_settings = config.productDefinitions_bulkticket_settings;
 
             productDefinition.jobsite_code = config.productDefinitions_jobsite_code;
             productDefinition.jobsite_name = config.productDefinitions_jobsite_name;
@@ -1110,6 +1205,11 @@ var mongo_transform = {
             user.products_ticket_settings_permissions_isAdmin = config.Users_products_ticket_settings_permissions_isAdmin;
             user.products_ticket_settings_permissions_legalAdmin = config.Users_products_ticket_settings_permissions_legalAdmin;
 
+            user.products_bulkticket_code = config.Users_products_bulkticket_code;
+            user.products_bulkticket_roles = config.Users_products_bulkticket_roles;
+            user.products_bulkticket_settings_permissions_isAdmin = config.Users_products_bulkticket_settings_permissions_isAdmin;
+            user.products_bulkticket_settings_permissions_legalAdmin = config.Users_products_bulkticket_settings_permissions_legalAdmin;
+
             user.products_jobsite_code = config.Users_products_jobsite_code;
             user.products_jobsite_roles = config.Users_products_jobsite_roles;
             user.products_jobsite_roles2 = config.Users_products_jobsite_roles2;
@@ -1178,6 +1278,7 @@ var mongo_transform = {
 
             transformMongoProperties.Companies_products_commerce = config.Companies_products_commerce;
             transformMongoProperties.Companies_products_ticket = config.Companies_products_ticket;
+            transformMongoProperties.Companies_products_bulkticket = config.Companies_products_bulkticket;
             transformMongoProperties.Companies_products_jobsite = config.Companies_products_jobsite;
             transformMongoProperties.Companies_products_supply = config.Companies_products_supply;
             transformMongoProperties.Companies_products_evoadmin = config.Companies_products_evoadmin;
