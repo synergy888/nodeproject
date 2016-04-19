@@ -7,27 +7,27 @@ chai.use(require('sinon-chai'));
 chai.use(require('chai-fs'));
 
 describe('jade-transform', function() {
-	var fs;
+	/*var fs;
 	var futureOrder;
 	var order;
 	var orderSMS;
 	var reorder;
 	var ticket;
-	var ticketSMS;
+	var ticketSMS;*/
 	var transformProperties;
 	var env;
 	var config;
 	var transform;
 
 	beforeEach(function () {
-		env = {};
+		/*env = {};
 		fs 					= require('fs');
 		futureOrder 		= require('../../scripts/JadeTransform/model/futureOrder.js');
 		order 				= require('../../scripts/JadeTransform/model/order.js');
 		orderSMS 			= require('../../scripts/JadeTransform/model/orderSMS.js');
 		reorder 			= require('../../scripts/JadeTransform/model/reorder.js');
 		ticket 				= require('../../scripts/JadeTransform/model/ticket.js');
-		ticketSMS 			= require('../../scripts/JadeTransform/model/ticketSMS.js');
+		ticketSMS 			= require('../../scripts/JadeTransform/model/ticketSMS.js');*/
 		config 				= require('../../scripts/JadeTransform/config-mongo.js');
 		prompts				= require('../../scripts/JadeTransform/config-prompt.js');
 		transform 			= require('../../scripts/JadeTransform/util/transform.js');

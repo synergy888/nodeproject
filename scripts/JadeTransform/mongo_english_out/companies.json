@@ -2,7 +2,7 @@
   {
     "code": "newco",
     "environment" : "production",
-    "description": "this is mid night 12",
+    "description": "this is new test",
     "status" : "y",
     "settings" : {
       "communications" : {
@@ -13,7 +13,7 @@
           }
         }
       },
-      "cloudStore" : "y"
+      "cloudStore" : "n"
     },
     "products": [
       {
@@ -85,6 +85,16 @@
             }
           },
           "user" : {
+          "sms": "",
+          "customer": {
+              "code": "newco",
+              "name": ""
+          },
+          "sales": [""],
+          "timeZone" : {
+              "name" : "US/Central",
+              "defaultRegion" : "USA"
+          },
             "permissions" : {
               "batchWeights" : "false",
               "truckTimes" : "true",
@@ -156,7 +166,7 @@
         }
       },
       {
-        "code": "MobileticketBulk",
+        "code": "bulkticket",
         "settings": {
           "savePdf" : "false",
           "systemType" : {
@@ -270,11 +280,10 @@
               "code": "newco",
               "name": ""
             },
+            "sales": [""],
             "timeZone" : {
-              "value" : "",
-              "operator" : "",
-              "hours" : "",
-              "minutes" : ""
+              "name" : "US/Central",
+              "defaultRegion" : ""
             },
             "permissions" : {
               "batchWeights": "false",

@@ -245,6 +245,14 @@ var mongo_transform = {
                 data = data.replace(/~Companies_products_commerce_settings_company_timeZone_name~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_name);
                 data = data.replace(/~Companies_products_commerce_settings_company_timeZone_defaultRegion~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_defaultRegion);
 
+                data = data.replace(/~Companies_products_commerce_settings_sms~/g, transformMongoProperties.companyObj.products_commerce_settings_user_sms);
+                data = data.replace(/~Companies_products_commerce_settings_user_sms~/g, transformMongoProperties.companyObj.products_commerce_settings_user_sms);
+                data = data.replace(/~Companies_products_commerce_settings_user_customer_code~/g, transformMongoProperties.companyObj.products_commerce_settings_user_customer_code);
+                data = data.replace(/~Companies_products_commerce_settings_user_customer_name~/g, transformMongoProperties.companyObj.products_commerce_settings_user_customer_name);
+                data = data.replace(/~Companies_products_commerce_settings_user_sales~/g, transformMongoProperties.companyObj.products_commerce_settings_user_sales);
+                data = data.replace(/~Companies_products_commerce_settings_company_timeZone_name~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_name);
+                data = data.replace(/~Companies_products_commerce_settings_company_timeZone_defaultRegion~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_defaultRegion);
+
                 data = data.replace(/~Companies_products_commerce_settings_user_permissions_batchWeights~/g, transformMongoProperties.companyObj.products_commerce_settings_user_permissions_batchWeights);
                 data = data.replace(/~Companies_products_commerce_settings_user_permissions_truckTimes~/g, transformMongoProperties.companyObj.products_commerce_settings_user_permissions_truckTimes);
                 data = data.replace(/~Companies_products_commerce_settings_user_permissions_pricing~/g, transformMongoProperties.companyObj.products_commerce_settings_user_permissions_pricing);
@@ -355,6 +363,13 @@ var mongo_transform = {
                 data = data.replace(/~Companies_products_jobsite_settings_company_timeZone_minutes~/g, transformMongoProperties.companyObj.products_jobsite_settings_company_timeZone_minutes);
                 data = data.replace(/~Companies_products_jobsite_settings_company_timeZone_name~/g, transformMongoProperties.companyObj.products_jobsite_settings_company_timeZone_name);
                 data = data.replace(/~Companies_products_jobsite_settings_company_timeZone_defaultRegion~/g, transformMongoProperties.companyObj.products_jobsite_settings_company_timeZone_defaultRegion);
+
+                data = data.replace(/~Companies_products_commerce_settings_user_sms~/g, transformMongoProperties.companyObj.products_commerce_settings_user_sms);
+                data = data.replace(/~Companies_products_jobsite_settings_user_customer_code~/g, transformMongoProperties.companyObj.products_jobsite_settings_user_customer_code);
+                data = data.replace(/~Companies_products_jobsite_settings_user_customer_name~/g, transformMongoProperties.companyObj.products_jobsite_settings_user_customer_name);
+                data = data.replace(/~Companies_products_jobsite_settings_sales~/g, transformMongoProperties.companyObj.products_commerce_settings_user_sales);
+                data = data.replace(/~Companies_products_commerce_settings_company_timeZone_name~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_name);
+                data = data.replace(/~Companies_products_commerce_settings_company_timeZone_defaultRegion~/g, transformMongoProperties.companyObj.products_commerce_settings_company_timeZone_defaultRegion);
 
                 data = data.replace(/~Companies_products_jobsite_settings_user_customer_code~/g, transformMongoProperties.companyObj.products_jobsite_settings_user_customer_code);
                 data = data.replace(/~Companies_products_jobsite_settings_user_customer_name~/g, transformMongoProperties.companyObj.products_jobsite_settings_user_customer_name);

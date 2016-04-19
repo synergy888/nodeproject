@@ -85,6 +85,16 @@
             }
           },
           "user" : {
+          "sms": "~Companies_products_commerce_settings_sms~",
+          "customer": {
+              "code": "~Companies_products_commerce_settings_user_customer_code~",
+              "name": "~Companies_products_commerce_settings_user_customer_name~"
+          },
+          "sales": ["~Companies_products_commerce_settings_user_sales~"],
+          "timeZone" : {
+              "name" : "~Companies_products_commerce_settings_company_timeZone_name~",
+              "defaultRegion" : "~Companies_products_commerce_settings_company_timeZone_defaultRegion~"
+          },
             "permissions" : {
               "batchWeights" : "~Companies_products_commerce_settings_user_permissions_batchWeights~",
               "truckTimes" : "~Companies_products_commerce_settings_user_permissions_truckTimes~",
@@ -270,11 +280,10 @@
               "code": "~Companies_products_jobsite_settings_user_customer_code~",
               "name": "~Companies_products_jobsite_settings_user_customer_name~"
             },
+            "sales": ["~Companies_products_jobsite_settings_sales~"],
             "timeZone" : {
-              "value" : "~Companies_products_jobsite_settings_user_timeZone_value~",
-              "operator" : "~Companies_products_jobsite_settings_user_timeZone_operator~",
-              "hours" : "~Companies_products_jobsite_settings_user_timeZone_hours~",
-              "minutes" : "~Companies_products_jobsite_settings_user_timeZone_minutes~"
+              "name" : "~Companies_products_jobsite_settings_company_timeZone_name~",
+              "defaultRegion" : "~Companies_products_jobsite_settings_company_timeZone_defaultRegion~"
             },
             "permissions" : {
               "batchWeights": "~Companies_products_jobsite_settings_user_permissions_batchWeights~",

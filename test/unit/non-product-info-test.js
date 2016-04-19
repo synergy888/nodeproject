@@ -70,7 +70,7 @@ describe('Test Prompts', function(){
 			});
 		});
 
-		describe('Style settings', function(){
+		/*describe('Style settings', function(){
 			it('should match style setting prompt text (Do you want to include style settings?)', function(){
 				expect(prompts.include_style.trim()).equal('Do you want to include style settings?'.trim());
 			});
@@ -90,9 +90,9 @@ describe('Test Prompts', function(){
 			it('should return \'#000000\' for secondary brand font', function(){
 				expect(transformProperties.companyObj.customBranding_font_2).equal('#000000');
 			});
-		});
+		});*/
 
-		describe('Company logos', function(){
+		/*describe('Company logos', function(){
 
 			it('should match company logo prompt text (What is the company logo?)', function(){
 				expect(prompts.company_logo.trim()).equal('What is the company logo?'.trim());
@@ -109,7 +109,7 @@ describe('Test Prompts', function(){
 			it('should return \'@logo: \'logo.png\';\' for company small logo', function(){
 				expect(transformProperties.companyObj.images_smallLogo).equal('@logo: \'logo.png\';');
 			});
-		});
+		});*/
 	});
 
 });
