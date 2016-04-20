@@ -23,11 +23,15 @@ configPrompt.reorder_request_mail 	= 'What is their Reorder request email?';
 configPrompt.on_base 				= 'Do they have onBase?';
 configPrompt.provider_url 			= 'What is the provider URL?';
 
-configPrompt.installProduct = function (productName) {
+configPrompt.input_folder = "Enter a relative path to the Mongo JSON input folder containing the .json files to be modified.";
+configPrompt.output_folder = "Enter a relative path to the Mongo JSON output folder where the transformed .json files will be written to.";
+configPrompt.import_to_mongo = "Output to folder only and do not import into mongo?";
+
+configPrompt.installProduct = function(productName){
     return 'Do you want to install ' + productName + '?';
 };
 
-configPrompt.productAlreadyInstalled = function (productName) {
+configPrompt.productAlreadyInstalled = function(productName){
     return productName +' is already installed. Do you want to modify it?';
 };
 

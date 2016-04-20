@@ -1,6 +1,7 @@
 var prompt = require('prompt');
 var configMongo = require('./config-mongo.js');
 var util = require('./util/utils');var transform = require('./util/mongo-transform.js');
+var configPrompt = require('./config-prompt.js');
 var ImportToMongo = require('./import_mongo_data.js');
 var fs = require('fs');
 
@@ -15,7 +16,7 @@ module.exports = {
         var promptInputFolder = {
             properties: {
                 inputFolder: {
-                    message: 'Enter a relative path to the Mongo JSON input folder containing the .json files to be modified.',
+                    message: configPrompt.input_folder,
                     default: inputFolder,
                     required: false
                 },
@@ -39,7 +40,7 @@ module.exports = {
                    var promptOutputFolder = {
                        properties: {
                            outputFolder: {
-                               message: 'Enter a relative path to the Mongo JSON output folder where the transformed .json files will be written to.',
+                               message: configPrompt.output_folder,
                                default: outputFolder,
                                required: false
                            },
@@ -56,7 +57,7 @@ module.exports = {
                        var output_to_folder_only = {
                            properties: {
                                outputFolderOnly: {
-                                   message: 'Output to folder only and do not import into mongo?',
+                                   message: configPrompt.import_to_mongo,
                                    default: configMongo.output_to_folder_only,
                                    required: false
                                },

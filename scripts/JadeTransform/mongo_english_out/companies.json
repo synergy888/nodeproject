@@ -1,8 +1,8 @@
 [
   {
     "code": "newco",
-    "environment" : "alpha",
-    "description": "this is again test 2",
+    "environment" : "production",
+    "description": "this is updated test description",
     "status" : "y",
     "settings" : {
       "communications" : {
@@ -13,13 +13,13 @@
           }
         }
       },
-      "cloudStore" : "n"
+      "cloudStore" : "y"
     },
     "products": [
       {
         "code": "MobileEcommerce",
         "settings": {
-          "environment" : "alpha",
+          "environment" : "production",
           "documentsConfig": {
             "providerAddress" : "http://localhost",
             "documentsUseChecksum" : "false",
