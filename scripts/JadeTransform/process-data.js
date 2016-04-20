@@ -27,166 +27,173 @@ module.exports = {
                 util.handleError(err);
             }
 
-            console.log('input folder: ' + result.inputFolder);
-            configMongo.input_folder = result.inputFolder;
+            checkInputDir(result.inputFolder, function(exist){
+               if(exist) {
+                   console.log('input folder: ' + result.inputFolder);
+                   configMongo.input_folder = result.inputFolder;
 
-            var outputFolder = process.env.MONGO_OUTPUT_FOLDER;
-            if (outputFolder === undefined) {
-                outputFolder = './' + configMongo.output_folder;
-            }
-            var promptOutputFolder = {
-                properties: {
-                    outputFolder: {
-                        message: 'Enter a relative path to the Mongo JSON output folder where the transformed .json files will be written to.',
-                        default: outputFolder,
-                        required: false
-                    },
-                }
-            };
+                   var outputFolder = process.env.MONGO_OUTPUT_FOLDER;
+                   if (outputFolder === undefined) {
+                       outputFolder = './' + configMongo.output_folder;
+                   }
+                   var promptOutputFolder = {
+                       properties: {
+                           outputFolder: {
+                               message: 'Enter a relative path to the Mongo JSON output folder where the transformed .json files will be written to.',
+                               default: outputFolder,
+                               required: false
+                           },
+                       }
+                   };
 
-            prompt.get(promptOutputFolder, function (err, result) {
-                if (err) {
-                    util.handleError(err);
-                }
+                   prompt.get(promptOutputFolder, function (err, result) {
+                       if (err) {
+                           util.handleError(err);
+                       }
 
-                configMongo.output_folder = result.outputFolder;
+                       configMongo.output_folder = result.outputFolder;
 
-                var output_to_folder_only = {
-                    properties: {
-                        outputFolderOnly: {
-                            message: 'Output to folder only and do not import into mongo?',
-                            default: configMongo.output_to_folder_only,
-                            required: false
-                        },
-                    }
-                };
+                       var output_to_folder_only = {
+                           properties: {
+                               outputFolderOnly: {
+                                   message: 'Output to folder only and do not import into mongo?',
+                                   default: configMongo.output_to_folder_only,
+                                   required: false
+                               },
+                           }
+                       };
 
-                prompt.get(output_to_folder_only, function (err, result) {
-                    if (err) {
-                        util.handleError(err);
-                    }
-                    if (result.outputFolderOnly.substring(0, 1) === 'n') {
-                        configMongo.output_to_folder_only = 'n';
-                    }
-                    else {
-                        configMongo.output_to_folder_only = 'y';
-                    }
+                       prompt.get(output_to_folder_only, function (err, result) {
+                           if (err) {
+                               util.handleError(err);
+                           }
+                           if (result.outputFolderOnly.substring(0, 1) === 'n') {
+                               configMongo.output_to_folder_only = 'n';
+                           }
+                           else {
+                               configMongo.output_to_folder_only = 'y';
+                           }
 
 
-                    setTimeout(function () {
-                        global.transformMongoProperties = transform.populateTransformObjects(configMongo);
-                        if (global.transformMongoProperties === undefined) {
-                            process.exit();
-                        }
-                        if (global.transformMongoProperties.output_to_folder_only === 'n') {
-                            self.transformMongoJSONFile(global.transformMongoProperties);
-                            checkProductsInstall(function(){
-                                bReturn = ImportToMongo.runImport(configMongo, 'company', 'companies.json');
-                                if (bReturn === true) {
-                                    bReturn = ImportToMongo.runImport(configMongo, 'notificationDefinitions', 'notificationDefinitions.json');
-                                }
-                                else {
-                                    try {
-                                        if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'companies.json').isFile() === false) {
-                                            console.log('File does not exist in the output directory. Error importing companies.json file to Mongo DB.');
-                                            process.exit();
-                                        }
-                                    }
-                                    catch (err) {
-                                        console.log('File does not exist in the output directory. Error importing companies.json file to Mongo DB.');
-                                        process.exit();
-                                    }
+                           setTimeout(function () {
+                               global.transformMongoProperties = transform.populateTransformObjects(configMongo);
+                               if (global.transformMongoProperties === undefined) {
+                                   process.exit();
+                               }
+                               if (global.transformMongoProperties.output_to_folder_only === 'n') {
+                                   self.transformMongoJSONFile(global.transformMongoProperties);
+                                   checkProductsInstall(function(){
+                                       bReturn = ImportToMongo.runImport(configMongo, 'company', 'companies.json');
+                                       if (bReturn === true) {
+                                           bReturn = ImportToMongo.runImport(configMongo, 'notificationDefinitions', 'notificationDefinitions.json');
+                                       }
+                                       else {
+                                           try {
+                                               if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'companies.json').isFile() === false) {
+                                                   console.log('File does not exist in the output directory. Error importing companies.json file to Mongo DB.');
+                                                   process.exit();
+                                               }
+                                           }
+                                           catch (err) {
+                                               console.log('File does not exist in the output directory. Error importing companies.json file to Mongo DB.');
+                                               process.exit();
+                                           }
 
-                                    console.log('Error importing companies.json file to Mongo DB.');
-                                    process.exit();
-                                }
-                                if (bReturn === true) {
-                                    bReturn = ImportToMongo.runImport(configMongo, 'productDefinitions', 'productDefinitions.json');
-                                }
-                                else {
-                                    try {
-                                        if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'notificationDefinitions.json').isFile() === false) {
-                                            console.log('File does not exist in the output directory. Error importing notificationDefinitions.json file to Mongo DB.');
-                                            process.exit();
-                                        }
-                                    }
-                                    catch (err) {
-                                        console.log('File does not exist in the output directory. Error importing notificationDefinitions.json file to Mongo DB.');
-                                        process.exit();
-                                    }
+                                           console.log('Error importing companies.json file to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       if (bReturn === true) {
+                                           bReturn = ImportToMongo.runImport(configMongo, 'productDefinitions', 'productDefinitions.json');
+                                       }
+                                       else {
+                                           try {
+                                               if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'notificationDefinitions.json').isFile() === false) {
+                                                   console.log('File does not exist in the output directory. Error importing notificationDefinitions.json file to Mongo DB.');
+                                                   process.exit();
+                                               }
+                                           }
+                                           catch (err) {
+                                               console.log('File does not exist in the output directory. Error importing notificationDefinitions.json file to Mongo DB.');
+                                               process.exit();
+                                           }
 
-                                    console.log('Error importing notificationDefinitions.json file to Mongo DB.');
-                                    process.exit();
-                                }
-                                if (bReturn === true) {
-                                    bReturn = ImportToMongo.runImport(configMongo, 'templateDefinitions', 'templateDefinitions.json');
-                                }
-                                else {
-                                    try {
-                                        if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'productDefinitions.json').isFile() === false) {
-                                            console.log('File does not exist in the output directory. Error importing productDefinitions.json file to Mongo DB.');
-                                            process.exit();
-                                        }
-                                    }
-                                    catch (err) {
-                                        console.log('File does not exist in the output directory. Error importing productDefinitions.json file to Mongo DB.');
-                                        process.exit();
-                                    }
+                                           console.log('Error importing notificationDefinitions.json file to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       if (bReturn === true) {
+                                           bReturn = ImportToMongo.runImport(configMongo, 'templateDefinitions', 'templateDefinitions.json');
+                                       }
+                                       else {
+                                           try {
+                                               if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'productDefinitions.json').isFile() === false) {
+                                                   console.log('File does not exist in the output directory. Error importing productDefinitions.json file to Mongo DB.');
+                                                   process.exit();
+                                               }
+                                           }
+                                           catch (err) {
+                                               console.log('File does not exist in the output directory. Error importing productDefinitions.json file to Mongo DB.');
+                                               process.exit();
+                                           }
 
-                                    console.log('Error importing productDefinitions.json file to Mongo DB.');
-                                    process.exit();
-                                }
-                                if (bReturn === true) {
-                                    bReturn = ImportToMongo.runImport(configMongo, 'users', 'users.json');
-                                }
-                                else {
-                                    try {
-                                        if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'templateDefinitions.json').isFile() === false) {
-                                            console.log('File does not exist in the output directory. Error importing templateDefinitions.json file to Mongo DB.');
-                                            process.exit();
-                                        }
-                                    }
-                                    catch (err) {
-                                        console.log('File does not exist in the output directory. Error importing templateDefinitions.json file to Mongo DB.');
-                                        process.exit();
-                                    }
+                                           console.log('Error importing productDefinitions.json file to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       if (bReturn === true) {
+                                           bReturn = ImportToMongo.runImport(configMongo, 'users', 'users.json');
+                                       }
+                                       else {
+                                           try {
+                                               if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'templateDefinitions.json').isFile() === false) {
+                                                   console.log('File does not exist in the output directory. Error importing templateDefinitions.json file to Mongo DB.');
+                                                   process.exit();
+                                               }
+                                           }
+                                           catch (err) {
+                                               console.log('File does not exist in the output directory. Error importing templateDefinitions.json file to Mongo DB.');
+                                               process.exit();
+                                           }
 
-                                    console.log('Error importing templateDefinitions.json file to Mongo DB.');
-                                    process.exit();
-                                }
-                                if (bReturn === false) {
-                                    try {
-                                        if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'users.json').isFile() === false) {
-                                            console.log('File does not exist in the output directory. Error importing users.json file to Mongo DB.');
-                                            process.exit();
-                                        }
-                                    }
-                                    catch (err) {
-                                        console.log('File does not exist in the output directory. Error importing users.json file to Mongo DB.');
-                                        process.exit();
-                                    }
+                                           console.log('Error importing templateDefinitions.json file to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       if (bReturn === false) {
+                                           try {
+                                               if (fs.statSync(global.transformMongoProperties.output_folder + '/' + 'users.json').isFile() === false) {
+                                                   console.log('File does not exist in the output directory. Error importing users.json file to Mongo DB.');
+                                                   process.exit();
+                                               }
+                                           }
+                                           catch (err) {
+                                               console.log('File does not exist in the output directory. Error importing users.json file to Mongo DB.');
+                                               process.exit();
+                                           }
 
-                                    console.log('Error importing users.json file to Mongo DB.');
-                                    process.exit();
-                                }
-                                if (global.transformMongoProperties.import_already_rendered_to_mongo === 'n') {
-                                    console.log('Successfully imported newly transformed .json seed data to Mongo DB.');
-                                    process.exit();
-                                }
-                                else {
-                                    console.log('Successfully imported previously rendered .json seed data to Mongo DB.');
-                                    process.exit();
-                                }
-                            });
-                        }
-                        else {
-                            self.transformMongoJSONFile(global.transformMongoProperties);
-                            process.exit();
-                        }
+                                           console.log('Error importing users.json file to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       if (global.transformMongoProperties.import_already_rendered_to_mongo === 'n') {
+                                           console.log('Successfully imported newly transformed .json seed data to Mongo DB.');
+                                           process.exit();
+                                       }
+                                       else {
+                                           console.log('Successfully imported previously rendered .json seed data to Mongo DB.');
+                                           process.exit();
+                                       }
+                                   });
+                               }
+                               else {
+                                   self.transformMongoJSONFile(global.transformMongoProperties);
+                                   process.exit();
+                               }
 
-                    }, 500);
+                           }, 500);
 
-                });
+                       });
+                   });
+               } else {
+                   console.log('The directory does not exists');
+                   process.exit();
+               }
             });
         });
     },
@@ -237,6 +244,40 @@ module.exports = {
         console.log('Successfully transformed .json Mongo seed data to the following folder: ' + transformProperties.output_folder);
     }
 };
+
+function checkInputDir(directory,callback){
+    try {
+        if(fs.statSync(directory).isDirectory()) {
+            if(fs.statSync(directory+'/users.json').isFile()) {
+                if(fs.statSync(directory+'/templateDefinitions.json').isFile()) {
+                    if(fs.statSync(directory+'/productDefinitions.json').isFile()) {
+                        if(fs.statSync(directory+'/notificationDefinitions.json').isFile()) {
+                            if(fs.statSync(directory+'/companies-v1.3.json').isFile()) {
+                                callback(true);
+                            } else {
+                                callback(false);
+                            }
+                        } else {
+                            callback(false);
+                        }
+                    } else {
+                        callback(false);
+                    }
+                } else {
+                    callback(false);
+                }
+            } else {
+                callback(false);
+            }
+
+        } else {
+            callback(false);
+        }
+    }
+    catch (err) {
+        callback(false);
+    }
+}
 
 function checkProductsInstall(cb){
     checkProduct1Install(function () {
@@ -299,11 +340,26 @@ function checkProduct2Install(cb){
 }
 
 function checkProduct3Install(cb){
-    if (configMongo.product2_install === 'y') {
+    if (configMongo.product4_install === 'y') {
         cb();
     }
     else {
-        cb();
+        var company = require('./mongo_english_out/companies.json');
+
+        for (var key in company[0].products) {
+            if (company[0].products[key].code === 'MobileticketBulk') {
+                company[0].products.splice(key,1);
+                fs.writeFile('./mongo_english_out/companies.json', JSON.stringify(company), function (err) {
+                    if (err) {
+                        util.handleError(err);
+                        cb();
+                    }
+                    else {
+                        cb();
+                    }
+                });
+            }
+        }
     }
 }
 

@@ -30,6 +30,7 @@ module.exports = {
 
         MongoClient.connect(url, function(err, db) {
             if (err) {
+                throw err;
                 cb(false);
             }
             else {

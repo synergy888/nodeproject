@@ -276,6 +276,7 @@
             }
           },
           "user": {
+            "sms": "~Companies_products_jobsite_settings_sms~",
             "customer": {
               "code": "~Companies_products_jobsite_settings_user_customer_code~",
               "name": "~Companies_products_jobsite_settings_user_customer_name~"

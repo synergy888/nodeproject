@@ -70,46 +70,6 @@ describe('Test Prompts', function(){
 			});
 		});
 
-		/*describe('Style settings', function(){
-			it('should match style setting prompt text (Do you want to include style settings?)', function(){
-				expect(prompts.include_style.trim()).equal('Do you want to include style settings?'.trim());
-			});
-
-			it('should match primary brand font prompt text (What is the company primary brand font?)', function(){
-				expect(prompts.primary_brand_font.trim()).equal('What is the company primary brand font?'.trim());
-			});
-
-			it('should return \'#FFFFFF\' for primary brand font', function(){
-				expect(transformProperties.companyObj.customBranding_font).equal('#FFFFFF');
-			});
-
-			it('should match secondary brand font prompt text (What is the company secondary brand font?)', function(){
-				expect(prompts.secondary_brand_font.trim()).equal('What is the company secondary brand font?'.trim());
-			});
-
-			it('should return \'#000000\' for secondary brand font', function(){
-				expect(transformProperties.companyObj.customBranding_font_2).equal('#000000');
-			});
-		});*/
-
-		/*describe('Company logos', function(){
-
-			it('should match company logo prompt text (What is the company logo?)', function(){
-				expect(prompts.company_logo.trim()).equal('What is the company logo?'.trim());
-			});
-
-			it('should return \'@logo: \'company-logo.png\';\' for company logo', function(){
-				expect(transformProperties.companyObj.branding_logo).equal('@logo: \'company-logo.png\';');
-			});
-
-			it('should match company small logo prompt text (What is the company small logo?)', function(){
-				expect(prompts.company_small_logo.trim()).equal('What is the company small logo?'.trim());
-			});
-
-			it('should return \'@logo: \'logo.png\';\' for company small logo', function(){
-				expect(transformProperties.companyObj.images_smallLogo).equal('@logo: \'logo.png\';');
-			});
-		});*/
+		//Style prompts were applicable for version 1.2. Unit tests for style were taken off. 
 	});
-
 });

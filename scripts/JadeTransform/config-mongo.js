@@ -1,6 +1,6 @@
 var configMongo = {};
 
-configMongo.mongoHost = 'localhost';
+configMongo.mongoHost = '127.0.0.1';
 configMongo.mongoPort = 27017;
 
 configMongo.company_code = 'newco';
@@ -190,7 +190,6 @@ configMongo.productDefinitions_ticket_platforms_mobile = "desktop";
 configMongo.productDefinitions_ticket_platforms_tablet = "desktop";
 configMongo.productDefinitions_ticket_settings = "";
 
-/////////////////////////////////////////////////////////////////////////
 configMongo.productDefinitions_bulkticket_code = "MobileticketBulk";
 configMongo.productDefinitions_bulkticket_name = "MobileticketBulk";
 configMongo.productDefinitions_bulkticket_description = "MobileticketBulk";
@@ -201,7 +200,6 @@ configMongo.productDefinitions_bulkticket_platforms_desktop = "desktop";
 configMongo.productDefinitions_bulkticket_platforms_mobile = "desktop";
 configMongo.productDefinitions_bulkticket_platforms_tablet = "desktop";
 configMongo.productDefinitions_bulkticket_settings = "";
-/////////////////////////////////////////////////////////////////////////
 
 configMongo.productDefinitions_jobsite_code = "jobsite";
 configMongo.productDefinitions_jobsite_name = "MOBILEjobsite";
@@ -415,7 +413,7 @@ configMongo.Companies_products_commerce_settings_company_advancedOrderRequest = 
 configMongo.Companies_products_commerce_settings_company_acctInfo = true;
 configMongo.Companies_products_commerce_settings_company_docImage = true;
 configMongo.Companies_products_commerce_settings_company_timeZone_value = "0600";
-configMongo.Companies_products_commerce_settings_company_timeZone_operator = "+";
+configMongo.Companies_products_commerce_settings_company_timeZone_operator = "-";
 configMongo.Companies_products_commerce_settings_company_timeZone_hours = "06";
 configMongo.Companies_products_commerce_settings_company_timeZone_minutes = "00";
 configMongo.Companies_products_commerce_settings_company_timeZone_name = "US/Central";
@@ -482,7 +480,7 @@ configMongo.Companies_products_ticket_settings_templates_subject2 = "|{{ soldToC
 configMongo.Companies_products_ticket_settings_templates_fileName2 = "{{ location.plantCode }}_{{ company.code }}_{{ soldToCustomer.code }}_{{ ticketNumber }}";
 configMongo.Companies_products_ticket_settings_templates_formatter2 = "jade";
 
-configMongo.Companies_products_bulkticket_code = "bulkticket";
+configMongo.Companies_products_bulkticket_code = "MobileticketBulk";
 configMongo.Companies_products_bulkticket_settings_savePdf = false;
 configMongo.Companies_products_bulkticket_settings_systemType_hauler = false;
 configMongo.Companies_products_bulkticket_settings_systemType_bulkticket_concrete = false;
@@ -542,7 +540,9 @@ configMongo.Companies_products_jobsite_settings_company_timeZone_operator = "-";
 configMongo.Companies_products_jobsite_settings_company_timeZone_hours = "06";
 configMongo.Companies_products_jobsite_settings_company_timeZone_minutes = "00";
 configMongo.Companies_products_jobsite_settings_company_timeZone_name = "US/Central";
-configMongo.Companies_products_jobsite_settings_company_timeZone_defaultRegion = "";
+configMongo.Companies_products_jobsite_settings_company_timeZone_defaultRegion = "USA";
+configMongo.Companies_products_jobsite_settings_user_sms = "";
+configMongo.Companies_products_jobsite_settings_user_sales = "";
 configMongo.Companies_products_jobsite_settings_user_customer_code = "";
 configMongo.Companies_products_jobsite_settings_user_customer_name = "";
 configMongo.Companies_products_jobsite_settings_user_timeZone_value = "";

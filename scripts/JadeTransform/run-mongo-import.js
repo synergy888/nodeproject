@@ -4,10 +4,10 @@ var prompt = require('prompt');
 var configMongo = require('./config-mongo.js');
 var configPrompts = require('./config-prompt.js');
 var nonProductInfo = require('./non-product-info');
-var product1 = require('./product1');
-var product2 = require('./product2');
-var product3 = require('./product3');
-var product4 = require('./product4');
+var product1 = require('./mobile-commerce.js');
+var product2 = require('./mobile-ticket.js');
+var product3 = require('./mobile-ticket-bulk.js');
+var product4 = require('./jobsite.js');
 var processData = require('./process-data');
 var auth = require('./util/auth');
 var util = require('./util/utils');
@@ -53,7 +53,7 @@ if(argv.rollback){
         var promptCompanyCode = {
             properties: {
                 company_code: {
-                    message: 'Enter a company code that will be part of the subdomain. For example, enter cai for cai.evodevelop.com',
+                    message: configPrompts.company_code,
                     default: companyCode,
                     required: false
                 }
@@ -79,7 +79,6 @@ if(argv.rollback){
                 configMongo.Users_hash = result.hash;
             });
 
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             var new_or_existing = process.env.NEW_OR_EXISTING;
             if (new_or_existing === undefined) {
                 new_or_existing = configMongo.new_or_existing_customer;
@@ -111,7 +110,7 @@ if(argv.rollback){
                             var promptExist = {
                                 properties : {
                                     exist : {
-                                        message : 'Customer already exists.  Do you want to overwrite previous customer data?',
+                                        message : configPrompts.customer_already_exist,
                                         default : 'y',
                                         required : true
                                     }

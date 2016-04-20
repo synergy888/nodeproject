@@ -1,8 +1,8 @@
 [
   {
     "code": "newco",
-    "environment" : "production",
-    "description": "this is new test",
+    "environment" : "alpha",
+    "description": "this is again test 2",
     "status" : "y",
     "settings" : {
       "communications" : {
@@ -19,7 +19,7 @@
       {
         "code": "MobileEcommerce",
         "settings": {
-          "environment" : "production",
+          "environment" : "alpha",
           "documentsConfig": {
             "providerAddress" : "http://localhost",
             "documentsUseChecksum" : "false",
@@ -166,7 +166,7 @@
         }
       },
       {
-        "code": "bulkticket",
+        "code": "MobileticketBulk",
         "settings": {
           "savePdf" : "false",
           "systemType" : {
@@ -272,10 +272,11 @@
               "hours": "06",
               "minutes": "00",
               "name" : "US/Central",
-              "defaultRegion" : ""
+              "defaultRegion" : "USA"
             }
           },
           "user": {
+            "sms": "",
             "customer": {
               "code": "newco",
               "name": ""
@@ -283,7 +284,7 @@
             "sales": [""],
             "timeZone" : {
               "name" : "US/Central",
-              "defaultRegion" : ""
+              "defaultRegion" : "USA"
             },
             "permissions" : {
               "batchWeights": "false",
